@@ -1,0 +1,22 @@
+{
+  "id": "light",
+  "name": "Light",
+  "description": "Clean light theme with blue accents",
+  "colors": {
+    "primary": "#2563eb",
+    "secondary": "#64748b",
+    "accent": "#3b82f6",
+    "background": "#ffffff",
+    "surface": "#f8fafc",
+    "text_primary": "#1e293b",
+    "text_secondary": "#64748b",
+    "success": "#10b981",
+    "warning": "#f59e0b",
+    "error": "#ef4444",
+    "info": "#3b82f6"
+  },
+  "is_dark": false,
+  "custom_css": null,
+  "created_by": "system",
+  "version": "1.0"
+}

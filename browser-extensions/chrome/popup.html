@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            width: 350px;
+            min-height: 400px;
+            margin: 0;
+            padding: 16px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 14px;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e1e5e9;
+        }
+        
+        .logo {
+            font-size: 20px;
+            margin-right: 8px;
+        }
+        
+        .title {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        
+        .auth-form {
+            margin-bottom: 16px;
+        }
+        
+        .form-group {
+            margin-bottom: 12px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 500;
+            color: #374151;
+        }
+        
+        input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .btn:hover {
+            background: #2563eb;
+        }
+        
+        .btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+        
+        .credentials-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .credential-item {
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .credential-item:hover {
+            background: #f9fafb;
+            border-color: #3b82f6;
+        }
+        
+        .credential-service {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+        
+        .credential-username {
+            color: #6b7280;
+            font-size: 13px;
+        }
+        
+        .error {
+            color: #ef4444;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+        
+        .success {
+            color: #10b981;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #6b7280;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #6b7280;
+        }
+        
+        .generate-password {
+            margin-top: 12px;
+        }
+        
+        .btn-secondary {
+            background: #6b7280;
+        }
+        
+        .btn-secondary:hover {
+            background: #4b5563;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <span class="logo">🔐</span>
+        <span class="title">SecureVault</span>
+    </div>
+    
+    <!-- Authentication Screen -->
+    <div id="authScreen">
+        <div class="auth-form">
+            <div class="form-group">
+                <label for="masterPassword">Master Password</label>
+                <input type="password" id="masterPassword" placeholder="Enter your master password">
+            </div>
+            <button class="btn" id="loginBtn">Unlock Vault</button>
+            <div id="authError" class="error hidden"></div>
+        </div>
+    </div>
+    
+    <!-- Main Application -->
+    <div id="mainApp" class="hidden">
+        <!-- Search -->
+        <div class="form-group">
+            <input type="text" id="searchInput" placeholder="Search credentials...">
+        </div>
+        
+        <!-- Generate Password -->
+        <div class="generate-password">
+            <button class="btn btn-secondary" id="generateBtn">Generate Password</button>
+        </div>
+        
+        <!-- Credentials List -->
+        <div id="credentialsList" class="credentials-list">
+            <div class="loading">Loading credentials...</div>
+        </div>
+        
+        <!-- Empty State -->
+        <div id="emptyState" class="empty-state hidden">
+            <p>No credentials found for this site.</p>
+            <p>Add credentials in the main SecureVault app.</p>
+        </div>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>

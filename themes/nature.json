@@ -1,0 +1,22 @@
+{
+  "id": "nature",
+  "name": "Nature",
+  "description": "Calming nature-inspired green theme",
+  "colors": {
+    "primary": "#059669",
+    "secondary": "#6b7280",
+    "accent": "#10b981",
+    "background": "#f0fdf4",
+    "surface": "#dcfce7",
+    "text_primary": "#14532d",
+    "text_secondary": "#374151",
+    "success": "#10b981",
+    "warning": "#d97706",
+    "error": "#dc2626",
+    "info": "#0891b2"
+  },
+  "is_dark": false,
+  "custom_css": null,
+  "created_by": "system",
+  "version": "1.0"
+}

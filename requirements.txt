@@ -9,3 +9,4 @@ aiofiles==23.2.1
 qrcode==7.4.2
 pillow==10.1.0
 pyotp==2.9.0
+pyjwt==2.8.0
