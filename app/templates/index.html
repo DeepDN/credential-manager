@@ -100,6 +100,17 @@
             gap: 1rem;
         }
 
+        .creator-credit {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
         .btn {
             display: inline-flex;
             align-items: center;
@@ -152,6 +163,45 @@
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--border-color);
+            padding: 1.5rem 2rem;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .footer-creator {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-creator strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .footer-creator i {
+            color: var(--primary-color);
         }
 
         /* Auth Screen */
@@ -250,6 +300,28 @@
             margin-top: 2rem;
             padding-top: 2rem;
             border-top: 1px solid var(--border-color);
+        }
+
+        .auth-creator {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(99, 102, 241, 0.2);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .auth-creator strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .auth-creator i {
+            color: var(--primary-color);
         }
 
         .auth-link {
@@ -525,8 +597,25 @@
                 padding: 1rem;
             }
 
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            .creator-credit {
+                order: -1;
+                font-size: 0.75rem;
+            }
+
             .main-content {
                 padding: 1rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
 
             .auth-card {
@@ -597,6 +686,7 @@
                     <span>SecureVault</span>
                 </a>
                 <div class="user-menu">
+                    <span class="creator-credit">Created by Deepak Nemade</span>
                     <button id="logoutBtn" class="btn btn-danger hidden" onclick="logout()">
                         <i class="fas fa-sign-out-alt"></i>
                         Logout
@@ -649,6 +739,11 @@
                             <a href="#" class="auth-link" onclick="toggleSetup()">
                                 Need to create a new vault?
                             </a>
+                        </div>
+
+                        <div class="auth-creator">
+                            <i class="fas fa-code"></i>
+                            Created by <strong>Deepak Nemade</strong>
                         </div>
                     </div>
                     
@@ -707,6 +802,11 @@
                             <a href="#" class="auth-link" onclick="toggleSetup()">
                                 Already have a vault? Sign in
                             </a>
+                        </div>
+
+                        <div class="auth-creator">
+                            <i class="fas fa-code"></i>
+                            Created by <strong>Deepak Nemade</strong>
                         </div>
                     </div>
                 </div>
@@ -799,6 +899,21 @@
                 </div>
             </div>
         </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <span class="footer-text">© 2024 SecureVault - Enterprise Password Manager</span>
+                </div>
+                <div class="footer-right">
+                    <span class="footer-creator">
+                        <i class="fas fa-code"></i>
+                        Created with ❤️ by <strong>Deepak Nemade</strong>
+                    </span>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <!-- Add/Edit Credential Modal -->

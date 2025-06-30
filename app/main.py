@@ -92,23 +92,35 @@ async def root():
         # Fallback to basic HTML if template not found
         return """
         <!DOCTYPE html>
-        <html>
+        <html lang="en">
         <head>
             <title>SecureVault - Loading...</title>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
             <style>
                 body { 
-                    font-family: Arial, sans-serif; 
+                    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
                     display: flex; 
+                    flex-direction: column;
                     justify-content: center; 
                     align-items: center; 
                     height: 100vh; 
                     margin: 0; 
                     background: #0f172a; 
-                    color: white; 
+                    color: white;
+                    background-image: 
+                        radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
                 }
-                .loading { text-align: center; }
+                .loading { 
+                    text-align: center; 
+                    background: #1e293b;
+                    padding: 3rem;
+                    border-radius: 16px;
+                    border: 1px solid #475569;
+                    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+                }
                 .spinner { 
                     border: 4px solid #334155; 
                     border-top: 4px solid #6366f1; 
@@ -118,14 +130,45 @@ async def root():
                     animation: spin 1s linear infinite; 
                     margin: 0 auto 20px; 
                 }
+                .title {
+                    font-size: 2rem;
+                    font-weight: 700;
+                    margin-bottom: 0.5rem;
+                    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                }
+                .subtitle {
+                    color: #cbd5e1;
+                    margin-bottom: 2rem;
+                }
+                .creator-credit {
+                    margin-top: 2rem;
+                    padding-top: 2rem;
+                    border-top: 1px solid #475569;
+                    color: #94a3b8;
+                    font-size: 0.875rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0.5rem;
+                }
+                .creator-credit strong {
+                    color: #6366f1;
+                    font-weight: 600;
+                }
                 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
             </style>
         </head>
         <body>
             <div class="loading">
                 <div class="spinner"></div>
-                <h2>🔐 SecureVault</h2>
-                <p>Loading your secure vault...</p>
+                <h2 class="title">🔐 SecureVault</h2>
+                <p class="subtitle">Loading your secure vault...</p>
+                <div class="creator-credit">
+                    Created by <strong>Deepak Nemade</strong>
+                </div>
             </div>
             <script>
                 setTimeout(() => {
@@ -315,36 +358,350 @@ async def view_shared_credential(token: str):
     
     if not credential_data:
         return """
-        <html><body>
-            <h1>Invalid or Expired Link</h1>
-            <p>This sharing link is invalid or has expired.</p>
-        </body></html>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Invalid Link - SecureVault</title>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+            <style>
+                :root {
+                    --primary-color: #6366f1;
+                    --dark-bg: #0f172a;
+                    --card-bg: #1e293b;
+                    --text-primary: #f8fafc;
+                    --text-secondary: #cbd5e1;
+                    --border-color: #475569;
+                    --error-color: #ef4444;
+                }
+                
+                * { margin: 0; padding: 0; box-sizing: border-box; }
+                
+                body {
+                    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                    background: var(--dark-bg);
+                    color: var(--text-primary);
+                    line-height: 1.6;
+                    min-height: 100vh;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-image: 
+                        radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+                }
+                
+                .container {
+                    max-width: 500px;
+                    margin: 2rem;
+                    background: var(--card-bg);
+                    padding: 3rem 2rem;
+                    border-radius: 16px;
+                    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+                    border: 1px solid var(--border-color);
+                    text-align: center;
+                }
+                
+                .error-icon {
+                    font-size: 4rem;
+                    color: var(--error-color);
+                    margin-bottom: 1.5rem;
+                }
+                
+                .title {
+                    font-size: 1.75rem;
+                    font-weight: 700;
+                    margin-bottom: 1rem;
+                    color: var(--text-primary);
+                }
+                
+                .message {
+                    color: var(--text-secondary);
+                    margin-bottom: 2rem;
+                    font-size: 1.1rem;
+                }
+                
+                .footer {
+                    margin-top: 2rem;
+                    padding-top: 2rem;
+                    border-top: 1px solid var(--border-color);
+                    color: var(--text-secondary);
+                    font-size: 0.875rem;
+                }
+                
+                .creator-credit {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0.5rem;
+                    margin-top: 1rem;
+                }
+                
+                .creator-credit strong {
+                    color: var(--primary-color);
+                    font-weight: 600;
+                }
+                
+                .creator-credit i {
+                    color: var(--primary-color);
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="error-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h1 class="title">Invalid or Expired Link</h1>
+                <p class="message">This sharing link is invalid or has expired for security reasons.</p>
+                
+                <div class="footer">
+                    <p>Powered by SecureVault - Enterprise Password Manager</p>
+                    <div class="creator-credit">
+                        <i class="fas fa-code"></i>
+                        Created by <strong>Deepak Nemade</strong>
+                    </div>
+                </div>
+            </div>
+        </body>
+        </html>
         """
     
     return f"""
     <html>
     <head>
-        <title>Shared Credential</title>
+        <title>Shared Credential - SecureVault</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <style>
-            body {{ font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }}
-            .container {{ max-width: 500px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }}
-            .credential {{ border: 1px solid #ddd; padding: 20px; border-radius: 4px; }}
-            button {{ background: #007bff; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; margin-left: 10px; }}
+            :root {{
+                --primary-color: #6366f1;
+                --dark-bg: #0f172a;
+                --card-bg: #1e293b;
+                --surface-bg: #334155;
+                --text-primary: #f8fafc;
+                --text-secondary: #cbd5e1;
+                --border-color: #475569;
+                --success-color: #10b981;
+                --warning-color: #f59e0b;
+            }}
+            
+            * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+            
+            body {{ 
+                font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                background: var(--dark-bg);
+                color: var(--text-primary);
+                line-height: 1.6;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                background-image: 
+                    radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            }}
+            
+            .container {{ 
+                max-width: 500px; 
+                margin: 2rem auto; 
+                background: var(--card-bg); 
+                padding: 2rem; 
+                border-radius: 16px; 
+                box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+                border: 1px solid var(--border-color);
+                backdrop-filter: blur(10px);
+                flex: 1;
+            }}
+            
+            .header {{
+                text-align: center;
+                margin-bottom: 2rem;
+            }}
+            
+            .title {{
+                font-size: 1.75rem;
+                font-weight: 700;
+                margin-bottom: 0.5rem;
+                background: linear-gradient(135deg, var(--primary-color) 0%, #8b5cf6 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }}
+            
+            .subtitle {{
+                color: var(--text-secondary);
+                font-size: 0.875rem;
+            }}
+            
+            .credential {{ 
+                background: var(--surface-bg);
+                border: 1px solid var(--border-color); 
+                padding: 1.5rem; 
+                border-radius: 12px; 
+                margin-bottom: 1.5rem;
+            }}
+            
+            .credential h3 {{
+                color: var(--text-primary);
+                margin-bottom: 1rem;
+                font-size: 1.25rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }}
+            
+            .field {{
+                margin-bottom: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }}
+            
+            .field-label {{
+                font-weight: 500;
+                color: var(--text-secondary);
+            }}
+            
+            .field-value {{
+                color: var(--text-primary);
+                font-family: monospace;
+                background: rgba(99, 102, 241, 0.1);
+                padding: 0.25rem 0.5rem;
+                border-radius: 4px;
+                flex: 1;
+                min-width: 0;
+            }}
+            
+            .btn {{ 
+                background: var(--primary-color); 
+                color: white; 
+                padding: 0.5rem 1rem; 
+                border: none; 
+                border-radius: 6px; 
+                cursor: pointer; 
+                font-size: 0.875rem;
+                font-weight: 500;
+                transition: all 0.2s ease;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+            }}
+            
+            .btn:hover {{ 
+                background: #4f46e5;
+                transform: translateY(-1px);
+            }}
+            
+            .btn-secondary {{
+                background: var(--surface-bg);
+                border: 1px solid var(--border-color);
+            }}
+            
+            .btn-secondary:hover {{
+                background: var(--card-bg);
+            }}
+            
+            .warning {{
+                background: rgba(245, 158, 11, 0.1);
+                border: 1px solid rgba(245, 158, 11, 0.2);
+                color: #fbbf24;
+                padding: 1rem;
+                border-radius: 8px;
+                font-size: 0.875rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }}
+            
+            .footer {{
+                text-align: center;
+                margin-top: 2rem;
+                padding-top: 2rem;
+                border-top: 1px solid var(--border-color);
+                color: var(--text-secondary);
+                font-size: 0.875rem;
+            }}
+            
+            .creator-credit {{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                margin-top: 1rem;
+            }}
+            
+            .creator-credit strong {{
+                color: var(--primary-color);
+                font-weight: 600;
+            }}
+            
+            .creator-credit i {{
+                color: var(--primary-color);
+            }}
+            
+            @media (max-width: 768px) {{
+                .container {{ margin: 1rem; padding: 1.5rem; }}
+                .field {{ flex-direction: column; align-items: flex-start; }}
+                .field-value {{ width: 100%; }}
+            }}
         </style>
     </head>
     <body>
         <div class="container">
-            <h1>🔐 Shared Credential</h1>
-            <div class="credential">
-                <h3>{credential_data['service_name']}</h3>
-                <p><strong>Username:</strong> {credential_data['username']} 
-                   <button onclick="copyToClipboard('{credential_data['username']}')">Copy</button></p>
-                <p><strong>Password:</strong> <span id="password">••••••••</span> 
-                   <button onclick="togglePassword()">Show</button>
-                   <button onclick="copyToClipboard('{credential_data['password']}')">Copy</button></p>
-                {f"<p><strong>Notes:</strong> {credential_data['notes']}</p>" if credential_data.get('notes') else ''}
+            <div class="header">
+                <h1 class="title">
+                    <i class="fas fa-share-alt"></i>
+                    Shared Credential
+                </h1>
+                <p class="subtitle">Securely shared via SecureVault</p>
             </div>
-            <p><small>⚠️ This link will expire and should not be shared further.</small></p>
+            
+            <div class="credential">
+                <h3>
+                    <i class="fas fa-globe"></i>
+                    {credential_data['service_name']}
+                </h3>
+                
+                <div class="field">
+                    <span class="field-label">Username:</span>
+                    <span class="field-value">{credential_data['username']}</span>
+                    <button class="btn btn-secondary" onclick="copyToClipboard('{credential_data['username']}')">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                </div>
+                
+                <div class="field">
+                    <span class="field-label">Password:</span>
+                    <span class="field-value" id="password">••••••••</span>
+                    <button class="btn btn-secondary" onclick="togglePassword()">
+                        <i class="fas fa-eye" id="toggleIcon"></i> Show
+                    </button>
+                    <button class="btn" onclick="copyToClipboard('{credential_data['password']}')">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                </div>
+                
+                {f'<div class="field"><span class="field-label">Notes:</span><span class="field-value">{credential_data["notes"]}</span></div>' if credential_data.get('notes') else ''}
+            </div>
+            
+            <div class="warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                This link will expire and should not be shared further for security reasons.
+            </div>
+            
+            <div class="footer">
+                <p>Powered by SecureVault - Enterprise Password Manager</p>
+                <div class="creator-credit">
+                    <i class="fas fa-code"></i>
+                    Created by <strong>Deepak Nemade</strong>
+                </div>
+            </div>
         </div>
         
         <script>
@@ -353,34 +710,62 @@ async def view_shared_credential(token: str):
             
             function togglePassword() {{
                 const span = document.getElementById('password');
+                const icon = document.getElementById('toggleIcon');
                 const button = span.nextElementSibling;
                 
                 if (!passwordVisible) {{
                     span.textContent = actualPassword;
-                    button.textContent = 'Hide';
+                    button.innerHTML = '<i class="fas fa-eye-slash" id="toggleIcon"></i> Hide';
                     passwordVisible = true;
                     
                     // Auto-hide after 10 seconds
                     setTimeout(() => {{
-                        span.textContent = '••••••••';
-                        button.textContent = 'Show';
-                        passwordVisible = false;
+                        if (passwordVisible) {{
+                            span.textContent = '••••••••';
+                            button.innerHTML = '<i class="fas fa-eye" id="toggleIcon"></i> Show';
+                            passwordVisible = false;
+                        }}
                     }}, 10000);
                 }} else {{
                     span.textContent = '••••••••';
-                    button.textContent = 'Show';
+                    button.innerHTML = '<i class="fas fa-eye" id="toggleIcon"></i> Show';
                     passwordVisible = false;
                 }}
             }}
             
             function copyToClipboard(text) {{
                 navigator.clipboard.writeText(text).then(() => {{
-                    alert('Copied to clipboard!');
+                    // Show success message
+                    const originalText = event.target.innerHTML;
+                    event.target.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    event.target.style.background = 'var(--success-color)';
                     
-                    // Clear clipboard after 30 seconds
+                    setTimeout(() => {{
+                        event.target.innerHTML = originalText;
+                        event.target.style.background = '';
+                    }}, 2000);
+                    
+                    // Clear clipboard after 30 seconds for security
                     setTimeout(() => {{
                         navigator.clipboard.writeText('');
                     }}, 30000);
+                }}).catch(() => {{
+                    // Fallback for older browsers
+                    const textArea = document.createElement('textarea');
+                    textArea.value = text;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    
+                    const originalText = event.target.innerHTML;
+                    event.target.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    event.target.style.background = 'var(--success-color)';
+                    
+                    setTimeout(() => {{
+                        event.target.innerHTML = originalText;
+                        event.target.style.background = '';
+                    }}, 2000);
                 }});
             }}
         </script>
