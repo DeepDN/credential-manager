@@ -5,19 +5,49 @@ All notable changes to SecureVault will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [2.0.0] - 2024-06-30
 
-### 🚀 Added
-- Hardware Security Module (HSM) support planning
-- Multi-factor authentication research
-- Post-quantum cryptography preparation
+### 🚀 Major Release - Enterprise Features
 
-### 🔧 Changed
-- Performance optimizations for large vaults
-- Improved error messages and user feedback
+This is a major release that transforms SecureVault from a simple password manager into an enterprise-grade security solution with multi-platform support.
 
-### 🐛 Fixed
-- Minor UI responsiveness issues
+### ✨ Added
+
+#### 🔐 Hardware Security Module (HSM) Support
+- **Software HSM Implementation**: Complete software HSM for development and testing
+- **Key Management**: Secure key generation, storage, and lifecycle management
+- **Encryption Services**: Hardware-backed encryption and decryption operations
+- **FIPS 140-2 Ready**: Compliance-ready architecture for enterprise deployments
+
+#### 📱 Mobile Applications Support
+- **Mobile API**: Comprehensive REST API optimized for mobile applications
+- **Device Management**: Secure device registration and authentication
+- **Biometric Integration**: Support for Face ID, Touch ID, and fingerprint authentication
+- **JWT Authentication**: Secure token-based authentication for mobile devices
+
+#### 🌐 Browser Extensions
+- **Chrome Extension**: Complete browser extension with auto-fill capabilities
+- **Form Detection**: Intelligent login form detection and credential matching
+- **Password Generation**: In-browser secure password generation
+- **Domain Matching**: Smart credential matching based on website domains
+
+#### 🔄 Self-Hosted Sync Service
+- **Multi-Device Sync**: Synchronize credentials across all your devices
+- **End-to-End Encryption**: All sync data encrypted before transmission
+- **Conflict Resolution**: Intelligent handling of simultaneous edits
+- **Device Management**: Centralized device registration and access control
+
+#### 🎨 Themes & Customization
+- **6 Built-in Themes**: Light, Dark, High Contrast, Cyberpunk, Nature, Ocean
+- **Custom Theme Creation**: Full theme editor with color customization
+- **Typography Control**: Font family, size, and spacing customization
+- **CSS Injection**: Advanced customization with custom CSS support
+
+### 🔧 Technical Improvements
+- **Modular Router System**: Organized API endpoints by feature area
+- **Enhanced Security**: JWT tokens, session management, and rate limiting
+- **SQLite Integration**: Reliable database for sync and device management
+- **Comprehensive Testing**: Full test coverage for all new features
 - Edge cases in search functionality
 
 ## [1.0.0] - 2024-01-15

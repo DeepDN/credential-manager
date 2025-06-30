@@ -1,4 +1,4 @@
-# 🔐 SecureVault - Enterprise-Grade Password Manager
+# 🔐 SecureVault - Enterprise-Grade Password Manager v2.0
 
 <div align="center">
 
@@ -7,13 +7,58 @@
 [![Python](https://img.shields.io/badge/Python-3.7+-blue?style=flat-square&logo=python)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-Latest-green?style=flat-square&logo=fastapi)](https://fastapi.tiangolo.com)
 [![Security](https://img.shields.io/badge/Security-AES--256-red?style=flat-square&logo=security)](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)
+[![HSM](https://img.shields.io/badge/HSM-Supported-orange?style=flat-square)](https://en.wikipedia.org/wiki/Hardware_security_module)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 
-**🚀 A military-grade, self-hosted password manager that keeps your secrets... secret.**
+**🚀 A military-grade, self-hosted password manager with enterprise features - Now with HSM support, Mobile Apps, Browser Extensions, Sync Service, and Custom Themes!**
 
-[🎯 Quick Start](#-quick-start) • [✨ Features](#-features) • [🛡️ Security](#️-security) • [📖 Documentation](#-documentation) • [🤝 Contributing](#-contributing)
+[🎯 Quick Start](#-quick-start) • [✨ New Features](#-new-features-v20) • [🛡️ Security](#️-security) • [📖 Documentation](#-documentation) • [🤝 Contributing](#-contributing)
 
 </div>
+
+---
+
+## 🌟 What's New in v2.0?
+
+> *"SecureVault v2.0 brings enterprise-grade features that were previously only available in commercial solutions!"*
+
+### 🔥 **Major New Features**
+
+#### 🔐 **Hardware Security Module (HSM) Support**
+- **Enterprise-grade key protection** with hardware security modules
+- **Software HSM** for development and testing
+- **Hardware HSM integration** for production environments
+- **Key escrow and recovery** capabilities
+- **FIPS 140-2 compliance** ready
+
+#### 📱 **Native Mobile Applications**
+- **iOS App** with Face ID/Touch ID integration
+- **Android App** with fingerprint/face unlock
+- **Biometric authentication** for enhanced security
+- **Offline access** to encrypted credentials
+- **Auto-fill integration** with mobile browsers and apps
+
+#### 🌐 **Browser Extensions**
+- **Chrome Extension** for seamless web integration
+- **Firefox Extension** (coming soon)
+- **Safari Extension** (coming soon)
+- **Auto-fill credentials** on websites
+- **Password generation** directly in browser
+- **Secure form detection** and filling
+
+#### 🔄 **Self-Hosted Sync Service**
+- **Multi-device synchronization** across all platforms
+- **End-to-end encryption** for sync data
+- **Conflict resolution** for simultaneous edits
+- **Device management** and access control
+- **Incremental sync** for efficiency
+
+#### 🎨 **Themes & Customization**
+- **6 Built-in themes**: Light, Dark, High Contrast, Cyberpunk, Nature, Ocean
+- **Custom theme creation** with full color control
+- **Font customization** and sizing options
+- **Compact mode** for smaller screens
+- **Custom CSS injection** for advanced users
 
 ---
 

@@ -1,0 +1,22 @@
+{
+  "id": "high-contrast",
+  "name": "High Contrast",
+  "description": "High contrast theme for accessibility",
+  "colors": {
+    "primary": "#000000",
+    "secondary": "#666666",
+    "accent": "#0066cc",
+    "background": "#ffffff",
+    "surface": "#f5f5f5",
+    "text_primary": "#000000",
+    "text_secondary": "#333333",
+    "success": "#008000",
+    "warning": "#ff8c00",
+    "error": "#cc0000",
+    "info": "#0066cc"
+  },
+  "is_dark": false,
+  "custom_css": null,
+  "created_by": "system",
+  "version": "1.0"
+}

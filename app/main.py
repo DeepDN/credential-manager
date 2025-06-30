@@ -16,21 +16,56 @@ from .models import (
     SearchRequest, AuditLog
 )
 from .vault import CredentialVault
+from .mobile_api import mobile_router
+from .browser_extension import browser_router
+from .sync_service import sync_router
+from .themes import themes_router
+from .hsm import initialize_hsm, get_hsm_manager
 
 app = FastAPI(
-    title="Secure Credential Manager",
-    description="A secure local credential management application",
-    version="1.0.0"
+    title="SecureVault - Enterprise Password Manager",
+    description="A military-grade, self-hosted password manager with advanced features",
+    version="2.0.0"
 )
 
-# CORS middleware for local development
+# CORS middleware for local development and mobile/browser extensions
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_origins=[
+        "http://localhost:3000", 
+        "http://127.0.0.1:3000",
+        "http://localhost:8000",
+        "http://127.0.0.1:8000",
+        "chrome-extension://*",
+        "moz-extension://*",
+        "safari-web-extension://*"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Include new feature routers
+app.include_router(mobile_router)
+app.include_router(browser_router)
+app.include_router(sync_router)
+app.include_router(themes_router)
+
+# Initialize HSM on startup
+@app.on_event("startup")
+async def startup_event():
+    """Initialize services on startup"""
+    # Initialize HSM
+    hsm_config = {
+        'provider': 'softhsm',
+        'key_store_path': './hsm_keys'
+    }
+    initialize_hsm(hsm_config)
+    
+    # Generate master key if not exists
+    hsm_manager = get_hsm_manager()
+    if hsm_manager.is_available():
+        hsm_manager.generate_master_key()
 
 # Global vault instance
 vault = CredentialVault()

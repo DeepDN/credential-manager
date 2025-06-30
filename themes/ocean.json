@@ -1,0 +1,22 @@
+{
+  "id": "ocean",
+  "name": "Ocean",
+  "description": "Deep ocean blue theme",
+  "colors": {
+    "primary": "#0ea5e9",
+    "secondary": "#64748b",
+    "accent": "#38bdf8",
+    "background": "#0c4a6e",
+    "surface": "#075985",
+    "text_primary": "#e0f2fe",
+    "text_secondary": "#bae6fd",
+    "success": "#10b981",
+    "warning": "#f59e0b",
+    "error": "#ef4444",
+    "info": "#38bdf8"
+  },
+  "is_dark": true,
+  "custom_css": null,
+  "created_by": "system",
+  "version": "1.0"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "cyberpunk",
+  "name": "Cyberpunk",
+  "description": "Futuristic cyberpunk theme with neon colors",
+  "colors": {
+    "primary": "#00ff9f",
+    "secondary": "#bd93f9",
+    "accent": "#ff79c6",
+    "background": "#0d1117",
+    "surface": "#161b22",
+    "text_primary": "#f0f6fc",
+    "text_secondary": "#8b949e",
+    "success": "#00ff9f",
+    "warning": "#ffb86c",
+    "error": "#ff5555",
+    "info": "#8be9fd"
+  },
+  "is_dark": true,
+  "custom_css": null,
+  "created_by": "system",
+  "version": "1.0"
+}
