@@ -486,6 +486,11 @@ async def root():
     </html>
     """
 
+@app.get("/health")
+async def health_check():
+    """Health check endpoint for Docker"""
+    return {"status": "healthy", "service": "SecureVault", "version": "2.0.0"}
+
 @app.get("/api/vault/exists")
 async def vault_exists():
     """Check if vault exists"""

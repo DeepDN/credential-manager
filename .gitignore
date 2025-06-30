@@ -62,3 +62,39 @@ logs/
 
 # Export files (encrypted backups)
 vault_export_*.enc
+
+# Docker volumes and data
+vault-data/
+backup-data/
+backups/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Key files
+*.key
+hsm_keys/
+test_hsm_keys/
+
+# Test and demo files
+test_*.py
+*_test.py
+demo.py
+*_demo.py
+troubleshoot.py
+
+# Release and build artifacts
+releases/
+create_release.py
+
+# Alternative run files
+run_web_alt.py
+simple_run.py
+show_web_ui.py
+
+# Documentation drafts
+GITHUB_READY.md
+QUICK_START.md
+V2_IMPLEMENTATION_SUMMARY.md
