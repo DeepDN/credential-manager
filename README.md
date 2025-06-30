@@ -34,6 +34,11 @@
 
 ## ✨ Key Features
 
+![Screenshot from 2025-06-30 17-36-06](https://github.com/user-attachments/assets/ab6b4815-ff93-49b3-b8f8-8cf977d18cc4)
+![Screenshot from 2025-06-30 17-58-10](https://github.com/user-attachments/assets/683ada3d-fc5a-41dc-bccc-7e69ed81bdcc)
+![Screenshot from 2025-06-30 17-58-20](https://github.com/user-attachments/assets/76f12c26-c818-4e40-a29e-a9bddbf19907)
+![Screenshot from 2025-06-30 17-58-31](https://github.com/user-attachments/assets/e0916eb7-24ac-4981-9752-5b0d7f6a3227)
+
 ### 🛡️ **Military-Grade Security**
 - **AES-256 Encryption** with authenticated encryption (Fernet)
 - **PBKDF2 Key Derivation** (100,000+ iterations) - NSA approved
