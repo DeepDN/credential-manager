@@ -12,6 +12,7 @@ RUN groupadd -r securevault && useradd -r -g securevault securevault
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     gcc \
+    curl \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
@@ -23,18 +24,18 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
 COPY app/ ./app/
-COPY scripts/ ./scripts/
 COPY docs/ ./docs/
 COPY *.py ./
 COPY *.md ./
 COPY *.txt ./
+COPY *.sh ./
 
 # Create necessary directories
 RUN mkdir -p /app/vault /app/backups /app/logs
 
 # Set permissions
 RUN chown -R securevault:securevault /app
-RUN chmod +x scripts/*.sh *.py
+RUN chmod +x *.sh *.py
 
 # Switch to non-root user
 USER securevault

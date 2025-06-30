@@ -286,6 +286,48 @@ class ThemeManager:
         
     def generate_css(self, theme: Theme, settings: CustomizationSettings) -> str:
         """Generate CSS from theme and settings"""
+        
+        # Generate compact mode CSS if enabled
+        compact_mode_css = ""
+        if settings.compact_mode:
+            compact_mode_css = """
+.compact-mode {
+    --font-size: 12px;
+    --border-radius: 4px;
+}
+
+.compact-mode .card {
+    padding: 8px 12px;
+}
+
+.compact-mode .btn {
+    padding: 4px 8px;
+    font-size: 12px;
+}
+"""
+        
+        # Generate icon CSS if disabled
+        icon_css = ""
+        if not settings.show_icons:
+            icon_css = """
+.icon {
+    display: none !important;
+}
+"""
+
+        # Generate sidebar CSS if collapsed
+        sidebar_css = ""
+        if settings.sidebar_collapsed:
+            sidebar_css = """
+.sidebar {
+    width: 60px;
+}
+
+.sidebar .nav-text {
+    display: none;
+}
+"""
+        
         css = f"""
 /* SecureVault Theme: {theme.name} */
 :root {{
@@ -321,39 +363,13 @@ body {{
 }}
 
 /* Compact mode */
-{"" if not settings.compact_mode else """
-.compact-mode {
-    --font-size: 12px;
-    --border-radius: 4px;
-}
-
-.compact-mode .card {
-    padding: 8px 12px;
-}
-
-.compact-mode .btn {
-    padding: 4px 8px;
-    font-size: 12px;
-}
-"""}
+{compact_mode_css}
 
 /* Hide icons if disabled */
-{"" if settings.show_icons else """
-.icon {
-    display: none !important;
-}
-"""}
+{icon_css}
 
 /* Sidebar collapsed */
-{"" if not settings.sidebar_collapsed else """
-.sidebar {
-    width: 60px;
-}
-
-.sidebar .nav-text {
-    display: none;
-}
-"""}
+{sidebar_css}
 
 /* Button styles */
 .btn-primary {{
