@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "release_date": "2025-06-30",
+  "features": [
+    "Hardware Security Module (HSM) Support",
+    "Mobile Applications API",
+    "Browser Extensions",
+    "Self-Hosted Sync Service",
+    "Themes & Customization"
+  ],
+  "api_version": "2.0",
+  "compatibility": {
+    "min_python": "3.7",
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+    ],
+    "browsers": [
+      "Chrome",
+      "Firefox",
+      "Safari"
+    ],
+    "mobile": [
+      "iOS 15+",
+      "Android 8+"
+    ]
+  }
+}
